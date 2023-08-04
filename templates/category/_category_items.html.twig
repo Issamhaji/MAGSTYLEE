@@ -1,0 +1,9 @@
+<a href="#">Categories</a>
+
+<ul class="dropdown">
+    {% for category in categories %} {# Equivalent foreach (categories as item => count) #}
+        <li>
+            <a href="{{ url('app_category', {slug: category.slug}) }}">{{ category.name }}</a>
+        </li>
+    {% endfor %}
+</ul>

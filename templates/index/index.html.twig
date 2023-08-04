@@ -1,0 +1,52 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+
+    <div class="section pt-5 pb-0">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-7 text-center">
+                    <h2 class="heading">Trending</h2>
+                </div>
+            </div>
+            {# trending items #}
+            {{ include('partials/_trending_items.html.twig', {treding : tredings}) }}
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            {{ include('partials/_article_items.html.twig', {article : articles} )}}
+        </div>
+    </div>
+
+    <div class="section pt-5 pb-0">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-7 text-center">
+                    <h2 class="heading">Most Popular Posts</h2>
+                </div>
+            </div>
+        </div>
+        <div class="most-popular-slider-wrap px-3 px-md-0">
+            <div id="most-popular-nav">
+                <span class="prev" data-controls="prev">Prev</span>
+                <span class="next" data-controls="next">Next</span>
+            </div>
+            {{ include('partials/_popular_items.html.twig') }}
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            <div class="row g-5">
+
+                {{ include('partials/_blogs_items.html.twig') }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

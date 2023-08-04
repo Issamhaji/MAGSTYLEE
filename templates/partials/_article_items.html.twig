@@ -1,0 +1,31 @@
+<div class="row g-5">
+    {% for item in articles|slice(0, 6) %}
+    <div class="col-lg-4">
+        <div class="post-entry d-block small-post-entry-v">
+            <div class="thumbnail">
+                <a href="{{ url('app_article', {slug: item.slug}) }}">
+                    <img src="https://picsum.photos/400/257" alt="Image" class="img-fluid">
+                </a>
+            </div>
+            <div class="content">
+                <div class="post-meta mb-1">
+                    <a href="#" class="category">{{item.category.name}}</a>, <a href="#" class="category">Travel</a> &mdash;
+                    <span class="date">{{ item.createdAt|date('Y-m-d H:i:s') }}</span>
+                </div>
+                <h2 class="heading mb-3"><a href="single.html">{{ item.title }}.</a></h2>
+                <p>{{ item.intro }}</p>
+                <a href="#" class="post-author d-flex align-items-center">
+                    <div class="author-pic">
+                        <img src="https://i.pravatar.cc/45" alt="Image">
+                    </div>
+                    <div class="text">
+                        <strong>{{ item.user.username }}</strong>
+                        <span>CEO and Founder</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
