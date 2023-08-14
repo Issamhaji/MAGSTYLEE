@@ -3,7 +3,7 @@
 {% block title %}Article{% endblock %}
 
 {% block content %}
-    {% for item in article %}
+
     <div class="section post-section pt-5">
         <div class="container">
             <div class="row justify-content-center">
@@ -30,8 +30,14 @@
                     </div>
                 </div>
             </div>
+            {{ include('partials/_comment_items.html.twig', {comment: comments}) }}
+            {# form type #}
+            {{ include('article/comment.html.twig') }}
         </div>
     </div>
+
+
+
     <div class="section pb-0">
         <div class="container">
             <div class="row">
@@ -121,5 +127,5 @@
             </div>
         </div>
     </div>
-    {% endfor %}
+
 {% endblock %}

@@ -9,10 +9,11 @@
             <div class="row mb-5 justify-content-center">
                 <div class="col-lg-9">
                     <span class="fw-normal text-uppercase d-block mb-1">Categories</span>
-                    <h2 class="heading">'Business'</h2>
+                    <h2 class="heading">{{ category.name }}</h2>
                 </div>
             </div>
             <div class="row justify-content-center">
+                {% for article in articles %}
                 <div class="col-lg-9">
                     <div class="post-entry d-md-flex small-horizontal mb-5">
                         <div class="me-md-5 thumbnail mb-3 mb-md-0">
@@ -20,77 +21,24 @@
                         </div>
                         <div class="content">
                             <div class="post-meta mb-3">
-                                <a href="#" class="category">Business</a>, <a href="#" class="category">Travel</a> &mdash;
-                                <span class="date">July 2, 2020</span>
+                                <a href="#" class="category">{{ article.category.name }}</a>, <a href="#" class="category">Travel</a> &mdash;
+                                <span class="date">{{ article.createdAt|date('Y-m-d H:i:s') }}</span>
                             </div>
-                            <h2 class="heading"><a href="single.html">Your most unhappy customers are your greatest source
-                                    of learning.</a></h2>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                                there live the blind texts.</p>
+                            <h2 class="heading"><a href="{{ url('app_article', {slug: article.slug}) }}">{{ article.title }}</a></h2>
+                            <p>{{ article.intro }}</p> 
                             <a href="#" class="post-author d-flex align-items-center">
                                 <div class="author-pic">
                                     <img src="https://i.pravatar.cc/45" alt="Image">
                                 </div>
                                 <div class="text">
-                                    <strong>Sergy Campbell</strong>
+                                    <strong>{{ article.user.username }}</strong>
                                     <span>Author, 26 published post</span>
                                 </div>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-9">
-                    <div class="post-entry d-md-flex small-horizontal mb-5">
-                        <div class="me-md-5 thumbnail mb-3 mb-md-0">
-                            <img src="https://picsum.photos/250/160" alt="Image" class="img-fluid">
-                        </div>
-                        <div class="content">
-                            <div class="post-meta mb-3">
-                                <a href="#" class="category">Business</a>, <a href="#" class="category">Travel</a> &mdash;
-                                <span class="date">July 2, 2020</span>
-                            </div>
-                            <h2 class="heading"><a href="single.html">Your most unhappy customers are your greatest source
-                                    of learning.</a></h2>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                                there live the blind texts.</p>
-                            <a href="#" class="post-author d-flex align-items-center">
-                                <div class="author-pic">
-                                    <img src="https://i.pravatar.cc/45" alt="Image">
-                                </div>
-                                <div class="text">
-                                    <strong>Sergy Campbell</strong>
-                                    <span>Author, 26 published post</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="post-entry d-md-flex small-horizontal mb-5">
-                        <div class="me-md-5 thumbnail mb-3 mb-md-0">
-                            <img src="https://picsum.photos/250/160" alt="Image" class="img-fluid">
-                        </div>
-                        <div class="content">
-                            <div class="post-meta mb-3">
-                                <a href="#" class="category">Business</a>, <a href="#" class="category">Travel</a> &mdash;
-                                <span class="date">July 2, 2020</span>
-                            </div>
-                            <h2 class="heading"><a href="single.html">Your most unhappy customers are your greatest source
-                                    of learning.</a></h2>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                                there live the blind texts.</p>
-                            <a href="#" class="post-author d-flex align-items-center">
-                                <div class="author-pic">
-                                    <img src="https://i.pravatar.cc/45" alt="Image">
-                                </div>
-                                <div class="text">
-                                    <strong>Sergy Campbell</strong>
-                                    <span>Author, 26 published post</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
