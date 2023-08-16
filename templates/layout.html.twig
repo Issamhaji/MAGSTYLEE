@@ -18,11 +18,19 @@
                         <a href="{{ url('app_index') }}" class="logo m-0 text-uppercase">MagStyle</a>
                     </div>
                     <div class="col-md-3 order-3 order-md-1">
-                        <form action="#" class="search-form">
-                            <span class="icon-search2"></span>
-                            <input type="search" class="form-control" placeholder="Search...">
-                        </form>
+                        <div class="d-flex">
+                            {% if app.user is null %}
+                            <a href="{{ url('app_login') }}" class="btn btn-primary">Login</a>
+                            {% else %}
+                            <a href="{{ url('app_logout') }}" class="btn btn-primary">LogOut</a>
+                            {% endif %}
+                            <form action="#" class="search-form">
+                                <span class="icon-search2"></span>
+                                <input type="search" class="form-control" placeholder="Search...">
+                            </form>
+                        </div>
                     </div>
+
                     <div class="col-md-3 text-end order-2 order-md-3 mb-3 mb-md-0">
                         <div class="d-flex">
                             <ul class="list-unstyled social me-auto">

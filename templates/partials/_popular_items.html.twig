@@ -1,30 +1,31 @@
+
 <div class="most-popular-slider" id="most-popular-center">
+    {% for item in popular %}
     <div class="item">
         <div class="post-entry d-block small-post-entry-v">
             <div class="thumbnail">
-                <a href="single.html">
+                <a href="#">
                     <img src="https://picsum.photos/781/502" alt="Image" class="img-fluid">
                 </a>
             </div>
             <div class="content">
                 <div class="post-meta mb-1">
-                    <a href="#" class="category">Business</a>, <a href="#" class="category">Travel</a> &mdash;
+                    <a href="#" class="category">{{ item.category.name }}</a>, <a href="#" class="category">Travel</a> &mdash;
                     <span class="date">July 2, 2020</span>
                 </div>
-                <h2 class="heading mb-3"><a href="single.html">Your most unhappy customers are your greatest
-                        source of learning.</a></h2>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                    there live the blind texts.</p>
+                <h2 class="heading mb-3"><a href="{{ url('app_article', {slug: item.slug}) }}">{{ item.title }}</a></h2>
+                <p>{{ item.description }}</p>
                 <a href="#" class="post-author d-flex align-items-center">
                     <div class="author-pic">
                         <img src="https://i.pravatar.cc/45" alt="Image">
                     </div>
                     <div class="text">
-                        <strong>Sergy Campbell</strong>
+                        <strong>{{ item.user.username }}</strong>
                         <span>CEO and Founder</span>
                     </div>
                 </a>
             </div>
         </div>
     </div>
+    {% endfor %}
 </div>

@@ -15,7 +15,7 @@ class AppFixtures extends Fixture
     private const COUNT_CATEGORIES = 4;
     private const COUNT_ARTICLE = 20;
 
-    private const COUNT_USERS = 8;
+    private const COUNT_USERS = 10;
 
     public function load(ObjectManager $manager): void
     {

@@ -29,4 +29,12 @@ class CategoryController extends AbstractController
             'categories' => $categories,
         ]);
     }
+    public function popular(ArticleRepository $Articlerepository,CategoryRepository $repository): Response
+    {
+        $populars = $repository->findBy(['popular'=> true]);
+        $articles = $Articlerepository->findBy(['category'=> $populars]);
+        return $this->render('partials/_popular_items.html.twig', [
+            'article' => $articles,
+        ]);
+    }
 }
