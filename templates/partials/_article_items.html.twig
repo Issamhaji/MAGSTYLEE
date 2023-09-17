@@ -12,7 +12,7 @@
                     <a href="#" class="category">{{item.category.name}}</a>, <a href="#" class="category">Travel</a> &mdash;
                     <span class="date">{{ item.createdAt|date('Y-m-d H:i:s') }}</span>
                 </div>
-                <h2 class="heading mb-3"><a href="single.html">{{ item.title }}.</a></h2>
+                <h2 class="heading mb-3"><a href="{{ url('app_article', {slug: item.slug}) }}">{{ item.title }}.</a></h2>
                 <p>{{ item.intro }}</p>
                 <a href="#" class="post-author d-flex align-items-center">
                     <div class="author-pic">

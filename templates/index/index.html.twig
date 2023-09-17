@@ -4,7 +4,17 @@
 
 {% block content %}
 
+    <div class="section pt-5 pb-0">
+    <div class="container">
+    <div class="row justify-content-center mb-5">
+        <div class="d-flex align-content-center justify-content-around">
+            <h2 class="heading">New Article <a href="{{ url('app_add') }}"> <img src="{{ asset('images/clickButton.png') }}" height="100" width="200" alt="click here"></a></h2>
+            {{ include('partials/_search_form.html.twig') }}
+        </div>
 
+    </div>
+    </div>
+    </div>
     <div class="section pt-5 pb-0">
         <div class="container">
             <div class="row justify-content-center mb-5">
@@ -44,7 +54,7 @@
         <div class="container">
             <div class="row g-5">
 
-                {{ include('partials/_blogs_items.html.twig') }}
+                {{ include('partials/_blogs_items.html.twig', {article : articles}) }}
             </div>
         </div>
     </div>

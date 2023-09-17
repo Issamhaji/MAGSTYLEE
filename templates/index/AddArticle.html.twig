@@ -1,0 +1,17 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Add New Article{% endblock %}
+
+{% block content %}
+    {% form_theme addArticle _self %}
+    <div class="container">
+        {{ form_start(addArticle) }}
+
+            {{ form_row(addArticle) }}
+
+        <button class="btn btn-primary" type="submit">
+            Add product
+        </button>
+        {{ form_end(addArticle) }}
+    </div>
+{% endblock %}

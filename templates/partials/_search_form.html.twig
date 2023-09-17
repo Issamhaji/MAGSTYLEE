@@ -1,0 +1,6 @@
+{{ form_start(searchForm) }}
+<div class="d-flex align-content-center justify-content-center gap-2">
+    {{ form_row(searchForm.title) }}
+    {{ form_row(searchForm.search, {'attr': {'class': 'btn btn-primary btn-sm'}}) }}
+</div>
+{{ form_end(searchForm) }}

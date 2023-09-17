@@ -34,10 +34,10 @@ class Article
     private ?\DateTimeImmutable $createdAt = null;
 
     #[ORM\Column]
-    private ?bool $home = null;
+    private ?bool $home = false;
 
     #[ORM\Column]
-    private ?bool $trending = null;
+    private ?bool $trending = false;
 
 
 
@@ -55,6 +55,7 @@ class Article
     public function __construct()
     {
         $this->comment = new ArrayCollection();
+        $this->createdAt = new \DateTimeImmutable();
     }
 
     public function getId(): ?int

@@ -18,7 +18,7 @@
                                 &mdash;
                                 <span class="date">July 2, 2020</span>
                             </div>
-                            <h2 class="heading"><a href="single.html">{{ item.title }}</a></h2>
+                            <h2 class="heading"><a href="{{ url('app_article', {slug: item.slug}) }}">{{ item.title }}</a></h2>
                             <p>{{ item.description }}</p>
                             <a href="#" class="post-author d-flex align-items-center">
                                 <div class="author-pic">

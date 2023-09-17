@@ -22,7 +22,7 @@ final class ArticleFactory extends ModelFactory
         return [
             'title' => self::faker()->text(20),
             'intro' => self::faker()->text(30),
-            'description' => self::faker()->text(),
+            'description' => self::faker()->text(300),
             'home' => self::faker()->boolean,
             'trending' => self::faker()->boolean,
             'createdAt' =>  DateTimeImmutable::createFromMutable(self::faker()->dateTime),

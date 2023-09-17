@@ -10,28 +10,28 @@
         </div>
         <div class="site-mobile-menu-body"></div>
     </div>
+
     <nav class="site-nav">
         <div class="container">
             <div class="site-navigation">
                 <div class="row">
-                    <div class="col-md-6 text-center order-1 order-md-2 mb-3 mb-md-0">
+                    <div class="col-md-2 text-center order-1 order-md-2 mb-3 mb-md-0">
                         <a href="{{ url('app_index') }}" class="logo m-0 text-uppercase">MagStyle</a>
                     </div>
-                    <div class="col-md-3 order-3 order-md-1">
-                        <div class="d-flex">
-                            {% if app.user is null %}
-                            <a href="{{ url('app_login') }}" class="btn btn-primary">Login</a>
-                            {% else %}
-                            <a href="{{ url('app_logout') }}" class="btn btn-primary">LogOut</a>
-                            {% endif %}
-                            <form action="#" class="search-form">
-                                <span class="icon-search2"></span>
-                                <input type="search" class="form-control" placeholder="Search...">
+
+                    <div class="col-md-5 order-3 order-md-1">
+                        <div class="d-flex align-content-center justify-content-center gap-2">
+                            <form>
+                                {% if app.user is null %}
+                                    <a href="{{ url('app_login') }}" class="btn btn-primary btn-sm">Login</a>
+                                {% else %}
+                                    <a href="{{ url('app_logout') }}" class="btn btn-primary btn-sm">LogOut</a>
+                                {% endif %}
                             </form>
                         </div>
                     </div>
 
-                    <div class="col-md-3 text-end order-2 order-md-3 mb-3 mb-md-0">
+                    <div class="col-md-5 text-end order-2 order-md-3 mb-3 mb-md-0">
                         <div class="d-flex">
                             <ul class="list-unstyled social me-auto">
                                 <li><a href="#"><span class="icon-twitter"></span></a></li>
@@ -50,6 +50,13 @@
             </div>
         </div>
     </nav>
+    {% for label,messages in app.flashes %}
+        <div class="alert alert-{{ label }}">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor%}
+        </div>
+    {% endfor %}
 
     {% block content %}{% endblock %}
 
